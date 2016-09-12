@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ImagineTech_Messenger
 {
-    public partial class Form1 : Form
+    public partial class FormImagineTech : Form
     {
-        public Form1()
+        public FormImagineTech()
         {
             InitializeComponent();
         }

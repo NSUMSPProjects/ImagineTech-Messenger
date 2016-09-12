@@ -1,6 +1,6 @@
 ﻿namespace ImagineTech_Messenger
 {
-    partial class Form1
+    partial class FormImagineTech
     {
         /// <summary>
         /// Required designer variable.
