@@ -1,4 +1,4 @@
-﻿namespace ImagineTechMessenger
+﻿namespace ImagineTech_Messenger
 {
 
 

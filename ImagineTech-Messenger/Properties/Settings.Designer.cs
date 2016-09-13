@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImagineTechMessenger.Properties {
+namespace ImagineTech_Messenger.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -61,10 +61,10 @@ namespace ImagineTechMessenger.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Remember {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Remember {
             get {
-                return ((string)(this["Remember"]));
+                return ((bool)(this["Remember"]));
             }
             set {
                 this["Remember"] = value;
