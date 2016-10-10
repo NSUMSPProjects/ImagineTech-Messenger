@@ -16,6 +16,12 @@ namespace MessengerInterfaces
         int Login(string userName);
 
         [OperationContract]
+        void Logout();
+
+        [OperationContract]
         void SendMessageToAll(string message, string userName);
+
+        [OperationContract]
+        List<string> GetCurrentUsers();
     }
 }

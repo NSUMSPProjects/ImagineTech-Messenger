@@ -11,5 +11,7 @@ namespace MessengerInterfaces
     {
         [OperationContract]
         void GetMessage(string message, string userName);
+        [OperationContract]
+        void GetUpdate(int value, string userName); // O for login, 1 for logoff
     }
 }

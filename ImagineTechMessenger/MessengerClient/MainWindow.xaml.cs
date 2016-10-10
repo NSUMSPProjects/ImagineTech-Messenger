@@ -58,10 +58,39 @@ namespace MessengerClient
             }
             else if (returnValue == 0)
             {
-                MessageBox.Show("You logged in!");
                 WelcomeLabel.Content = "Welcome, " + UserNameTextBox.Text + "!";
                 UserNameTextBox.IsEnabled = false;
                 LoginButton.IsEnabled = false;
+
+                // load users
+                LoadUserList(Server.GetCurrentUsers());
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Server.Logout();
+        }
+
+        public void AddUserToList(string userName)
+        {
+            if (UsersListBox.Items.Contains(userName))
+                return;
+
+            UsersListBox.Items.Add(userName);
+        }
+
+        public void RemoveUSerFromList(string userName)
+        {
+            if (UsersListBox.Items.Contains(userName))
+                UsersListBox.Items.Remove(userName);
+        }
+
+        private void LoadUserList(List<string> users)
+        {
+            foreach (var user in users)
+            {
+                AddUserToList(user);
             }
         }
     }

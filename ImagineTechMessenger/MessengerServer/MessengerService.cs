@@ -38,7 +38,42 @@ namespace MessengerServer
 
             _connectedClients.TryAdd(userName, newClient);
 
+            updateHelper(0, userName);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Client login: {0} at {1}", newClient.UserName, System.DateTime.Now);
+            Console.ResetColor();
+
             return 0; // successfully added in
+        }
+
+        public void Logout()
+        {
+            ConnectedClient client = GetMyClient();
+            if(client != null)
+            {
+                ConnectedClient removedClient;
+                _connectedClients.TryRemove(client.UserName, out removedClient);
+
+                updateHelper(1, removedClient.UserName);
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Client logoff: {0} at {1}", removedClient.UserName, System.DateTime.Now);
+                Console.ResetColor();
+            }
+        }
+
+        public ConnectedClient GetMyClient()
+        {
+            var establishedUserConnection = OperationContext.Current.GetCallbackChannel<IClient>();
+            foreach (var client in _connectedClients)
+            {
+                if(client.Value.connection == establishedUserConnection)
+                {
+                    return client.Value;
+                }
+            }
+            return null;
         }
 
         public void SendMessageToAll(string message, string userName)
@@ -50,6 +85,27 @@ namespace MessengerServer
                     client.Value.connection.GetMessage(message, userName);
                 }
             }
+        }
+
+        private void updateHelper(int value, string userName)
+        {
+            foreach (var client in _connectedClients)
+            {
+                if (client.Value.UserName.ToLower() != userName.ToLower()) // Don't update the person logging in or logging out
+                {
+                    client.Value.connection.GetUpdate(value, userName);
+                }
+            }
+        }
+
+        public List<string> GetCurrentUsers()
+        {
+            List<string> listOfUsers = new List<string>();
+            foreach (var client in _connectedClients)
+            {
+                listOfUsers.Add(client.Value.UserName);
+            }
+            return listOfUsers;
         }
     }
 }
