@@ -1,4 +1,4 @@
-﻿using MessengerIntefaces;
+﻿using MessengerInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,9 @@ namespace MessengerInterfaces
     public interface IMessengerService
     {
         [OperationContract]
-        //void DoWork();
-        void Test(string value);
+        int Login(string userName);
+
+        [OperationContract]
+        void SendMessageToAll(string message, string userName);
     }
 }

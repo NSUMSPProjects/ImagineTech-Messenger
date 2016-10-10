@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerClient", "Messenge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerServer", "MessengerServer\MessengerServer.csproj", "{A4DD19DE-7995-45AA-951F-330B998C3DC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerIntefaces", "MessengerIntefaces\MessengerIntefaces.csproj", "{2F6B8AF0-E1DF-40A8-BA9C-4607B4019E27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerInterfaces", "MessengerIntefaces\MessengerInterfaces.csproj", "{2F6B8AF0-E1DF-40A8-BA9C-4607B4019E27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

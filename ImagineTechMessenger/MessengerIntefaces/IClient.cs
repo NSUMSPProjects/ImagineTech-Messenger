@@ -5,11 +5,11 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MessengerIntefaces
+namespace MessengerInterfaces
 {
     public interface IClient
     {
         [OperationContract]
-        void PlaceHolder();
+        void GetMessage(string message, string userName);
     }
 }

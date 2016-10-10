@@ -33,9 +33,36 @@ namespace MessengerClient
             Server = _channelFactory.CreateChannel();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        public void TakeMessage(string message, string userName)
         {
-            Server.Test("Hello World");
+            TextDisplayTextBox.Text += userName + ": " + message + "\n";
+            TextDisplayTextBox.ScrollToEnd();
+        }
+
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageTextBox.Text.Length == 0)
+                return;
+
+            Server.SendMessageToAll(MessageTextBox.Text, UserNameTextBox.Text);
+            TakeMessage(MessageTextBox.Text, "You");
+            MessageTextBox.Text = ""; // empty for the next message
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            int returnValue = Server.Login(UserNameTextBox.Text);
+            if (returnValue == 1)
+            {
+                MessageBox.Show("You are already logged in. Try again.");
+            }
+            else if (returnValue == 0)
+            {
+                MessageBox.Show("You logged in!");
+                WelcomeLabel.Content = "Welcome, " + UserNameTextBox.Text + "!";
+                UserNameTextBox.IsEnabled = false;
+                LoginButton.IsEnabled = false;
+            }
         }
     }
 }

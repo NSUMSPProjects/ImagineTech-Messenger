@@ -98,9 +98,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MessengerIntefaces\MessengerIntefaces.csproj">
+    <ProjectReference Include="..\MessengerIntefaces\MessengerInterfaces.csproj">
       <Project>{2f6b8af0-e1df-40a8-ba9c-4607b4019e27}</Project>
-      <Name>MessengerIntefaces</Name>
+      <Name>MessengerInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
