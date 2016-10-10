@@ -14,8 +14,13 @@ namespace MessengerServer
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
     public class MessengerService : IMessengerService
     {
-        public void DoWork()
+        //public void DoWork()
+        //{
+        //}
+
+        public void Test(string value)
         {
+            Console.WriteLine(value);
         }
     }
 }

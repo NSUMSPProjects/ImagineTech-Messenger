@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MessengerInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +22,20 @@ namespace MessengerClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static IMessengerService Server;
+        public static DuplexChannelFactory<IMessengerService> _channelFactory;
+
         public MainWindow()
         {
             InitializeComponent();
+            _channelFactory = new DuplexChannelFactory<IMessengerService>(
+                new ClientCallBack(), "MessengerServiceEndPoint");
+            Server = _channelFactory.CreateChannel();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Server.Test("Hello World");
         }
     }
 }

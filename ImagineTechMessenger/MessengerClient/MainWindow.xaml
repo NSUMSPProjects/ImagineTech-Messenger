@@ -7,12 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="141.333,20.383,0,0" VerticalAlignment="Top" Width="75" Background="#FFC4ABF9" FontFamily="Georgia" Height="19.96"/>
-        <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Margin="10,20.383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19.96"/>
-        <RichTextBox x:Name="TextDisplayRichTextBox" Margin="10,59,10,47.333"/>
-        <Button x:Name="Send" Content="Send" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Background="#FFC4ABF9" IsDefault="True" FontFamily="Georgia" Height="19.96"/>
-        <TextBox x:Name="MessageTextBox" Margin="10,0,98.333,10" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="19.96"/>
-        <Label x:Name="WelcomeLabel" Content="[Welcome, Shabbir]" HorizontalAlignment="Right" Margin="0,20.383,40.339,0" VerticalAlignment="Top" Width="117.993" FontSize="11" FontFamily="Georgia"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260*"/>
+            <ColumnDefinition Width="257*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="141,20,0,0" VerticalAlignment="Top" Width="75" Background="#FFC4ABF9" FontFamily="Georgia" Height="20"/>
+        <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <RichTextBox x:Name="TextDisplayRichTextBox" Margin="10,59,10,47" Grid.ColumnSpan="2"/>
+        <Button x:Name="Send" Content="Send" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Background="#FFC4ABF9" IsDefault="True" FontFamily="Georgia" Height="20" Grid.Column="1"/>
+        <TextBox x:Name="MessageTextBox" Margin="10,0,98,10" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="20" Grid.ColumnSpan="2"/>
+        <Label x:Name="WelcomeLabel" Content="[Welcome, Shabbir]" HorizontalAlignment="Right" Margin="0,20,40,0" VerticalAlignment="Top" Width="118" FontSize="11" FontFamily="Georgia" Grid.Column="1"/>
+        <Button x:Name="button" Content="test" HorizontalAlignment="Left" Margin="249,22,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="button_Click"/>
 
     </Grid>
 </Window>
